@@ -1,0 +1,38 @@
+stages:
+  - build
+  - test
+  - deploy
+
+variables:
+  BUILD_DIR: build
+  BIN_DIR: bin/
+  APP_NAME: my_app # Replace "my_app" with your desired default binary name
+  CMAKE_BUILD_TYPE: Release
+  CMAKE_EXPORT_COMPILE_COMMANDS: "ON"
+
+before_script:
+  - rm -rf $BUILD_DIR  # Clean the build directory
+  - mkdir -p $BUILD_DIR
+  - cd $BUILD_DIR
+
+build:
+  stage: build
+  script:
+    - cmake -DCMAKE_RUNTIME_OUTPUT_DIRECTORY=$BUILD_DIR/$BIN_DIR -DAPP_NAME=$APP_NAME -DCMAKE_BUILD_TYPE=$CMAKE_BUILD_TYPE ..
+    - cmake --build .
+  artifacts:
+    paths:
+      - $BUILD_DIR/$BIN_DIR
+
+test:
+  stage: test
+  script:
+    - cd $BUILD_DIR
+    - ctest --output-on-failure
+
+deploy:
+  stage: deploy
+  script:
+    - echo "Deploy stage - implement deployment steps here"
+  only:
+    - main

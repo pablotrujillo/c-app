@@ -1,0 +1,43 @@
+# Ignore build directory
+build/
+
+# Ignore binary files
+bin/
+
+# Ignore CMake generated files
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# Ignore compiled object files
+*.o
+*.obj
+
+# Ignore executable files
+*.exe
+*.out
+*.app
+*.bin
+
+# Ignore logs and temporary files
+*.log
+*.tmp
+
+# Ignore editor/IDE-specific files
+.vscode/
+.idea/
+*.swp
+
+# Ignore dependency files
+*.d
+*.dep
+
+# Ignore generated documentation
+docs/generated/
+
+# Allow source code and configuration files
+!src/
+!*.c
+!*.h
+!CMakeLists.txt
