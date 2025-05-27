@@ -47,7 +47,7 @@ To build the application, follow these steps:
 After building the application, you can run it with the following command:
 
 ```
-.build/bin/app
+./build/bin/app
 ```
 
 ## License
